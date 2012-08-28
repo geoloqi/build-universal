@@ -71,8 +71,9 @@ class UniversalBuilder
 		# some sensible defaults 
 		self.config.configurations ||= %w{Debug Release}
 		self.config.sdks ||= %w{iphoneos iphonesimulator}
-		self.config.xcodebuild ||= "/Developer/usr/bin/xcodebuild"
+        self.config.xcodebuild ||= "/usr/bin/xcodebuild"
 		self.config.build_dir ||= File.join(ENV['PWD'],'build')
+        self.config.archs = OpenStruct.new({ "iphoneos" => ["armv6", "armv7"] })
     # self.config.parallelize = true unless self.config.marshal_dump.key?(:parallelize)
 	end
 
